@@ -6,6 +6,7 @@ import { FaPaperPlane } from "react-icons/fa6";
 import emailjs from "@emailjs/browser";
 import { toast } from "react-hot-toast";
 import HeroTechFloat from "./HeroTechFloat";
+import MobHero from "./MobHero";
 
 const Hero = () => {
   const careers = [
@@ -57,15 +58,6 @@ const Hero = () => {
         form.current,
         "ia7juwqCetOnlwQl-"
       )
-      .then(() => {
-        // Step 2: Send Auto-reply
-        return emailjs.sendForm(
-          "service_yat85vi",
-          "template_nmkq2to", // Auto-reply template → goes to USER
-          form.current,
-          "ia7juwqCetOnlwQl-"
-        );
-      })
       .then(() => {
         toast.success("Message sent successfully!");
         form.current.reset();

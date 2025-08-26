@@ -18,10 +18,11 @@ const About = () => {
     <>
       <Navbar />
 
-      <div className="flex flex-col lg:flex-row">
-        {/* Sidebar: visible on large screens only */}
-        <aside className="hidden lg:block fixed top-8 left-0 h-screen w-[14%] border-r border-gray-300 bg-gradient-to-r from-blue-500 to-blue-600  shadow-md z-10">
-          <nav className="w-full flex flex-col gap-6 pt-32 px-4 text-sm font-medium">
+      {/* Sidebar + Main Content wrapper */}
+      <div className="flex flex-row mb-[-40px]">
+        {/* Sidebar */}
+        <aside className="hidden lg:block flex sticky top-25 self-start h-[100vh] w-70 flex-col bg-gradient-to-b from-blue-500 to-blue-600 shadow-lg">
+          <nav className="flex flex-col gap-4 p-6 pt-16 text-lg font-medium">
             {navItems.map((item) => (
               <Link
                 key={item.to}
@@ -30,8 +31,8 @@ const About = () => {
                 duration={600}
                 offset={-80}
                 spy={true}
-                activeClass="bg-gray-700 text-blue-600 shadow-md"
-                className="cursor-pointer px-4 py-2 text-lg rounded-md transition-all duration-300 text-white hover:bg-white hover:text-gray-700"
+                activeClass="bg-orange-400 text-blue-700 font-semibold shadow-md"
+                className="cursor-pointer px-2 py-1.5 rounded-lg transition-all duration-300 text-white hover:bg-white hover:text-blue-700"
               >
                 {item.label}
               </Link>
@@ -39,10 +40,8 @@ const About = () => {
           </nav>
         </aside>
 
-        {/* Mobile Top Scroll Nav */}
-
         {/* Main Content */}
-        <main className="w-full lg:ml-[14%] overflow-x-hidden">
+        <main className="w-full overflow-x-hidden">
           <section id="who" className="scroll-mt-24">
             <WhoIAm />
           </section>
@@ -54,11 +53,12 @@ const About = () => {
           <section id="vision" className="scroll-mt-24">
             <Vision />
           </section>
-
-          <WhatsappBanner />
-          <Footer />
         </main>
       </div>
+
+      {/* Footer full width */}
+      <WhatsappBanner />
+      <Footer />
     </>
   );
 };

@@ -22,15 +22,6 @@ const Contact = () => {
         "ia7juwqCetOnlwQl-"
       )
       .then(() => {
-        // Step 2: Send Auto-reply
-        return emailjs.sendForm(
-          "service_yat85vi",
-          "template_nmkq2to", // Auto-reply template → goes to USER
-          form.current,
-          "ia7juwqCetOnlwQl-"
-        );
-      })
-      .then(() => {
         toast.success("Message sent successfully!");
         form.current.reset();
       })

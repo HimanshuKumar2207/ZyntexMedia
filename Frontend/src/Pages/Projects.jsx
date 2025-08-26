@@ -77,10 +77,10 @@ const Projects = () => {
             ))}
           </div>
           <p className="text-gray-600 text-base max-w-3xl mx-auto text-center mt-10">
-            Over the past few years, Techvers has built a wide range of
-            real-world applications — from responsive websites to robust
-            full-stack platforms — each crafted with a strong focus on
-            performance, user experience, and code quality.
+            Over the past few years, Zyntex has built a wide range of real-world
+            applications — from responsive websites to robust full-stack
+            platforms — each crafted with a strong focus on performance, user
+            experience, and code quality.
           </p>
         </div>
 
@@ -99,15 +99,15 @@ const Projects = () => {
               className="relative bg-white/30 backdrop-blur-xl border border-white/20 rounded-3xl shadow-md hover:shadow-2xl transition-all duration-300 overflow-hidden group"
             >
               {/* Project card structure as-is */}
-              <div className="relative h-[200px] overflow-hidden">
+              <div className="relative h-[220px] overflow-hidden">
                 <img
                   src={project.image}
                   onError={(e) => {
                     e.target.src =
-                      "https://via.placeholder.com/300?text=Image+Not+Found";
+                      "https://via.placeholder.com/300x200?text=Image+Not+Found";
                   }}
                   alt={project.title}
-                  className="w-full h-full object-cover transform transition-transform duration-500 group-hover:scale-105"
+                  className="w-full h-full object-cover rounded-t-3xl transform transition-transform duration-500 group-hover:scale-110"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10" />
               </div>
@@ -151,7 +151,8 @@ const Projects = () => {
             Have a project idea or want to collaborate?
           </h3>
           <p className="text-gray-600 mb-6">
-            <span className="font-semibold">At Techvers,</span> we’re always
+            At
+            <span className="font-semibold"> Zyntex Media,</span> we’re always
             open to exploring new opportunities, exciting freelance projects, or
             meaningful collaborations in the world of tech
           </p>

@@ -7,19 +7,21 @@ import WhatsappBanner from "../components/WhatsappBanner";
 import Navbar from "../components/Navbar";
 import Industries from "../components/Industries";
 
+const navItems = [
+  { to: "industries", label: "Industries Served" },
+  { to: "process", label: "Our Process" },
+  { to: "testimonial", label: "Testimonials" },
+];
+
 const Expertise = () => {
   return (
     <>
       <Navbar />
-      <div className="flex">
+      <div className="flex flex-row mb-[-40px]">
         {/* Sidebar Navigation (Hidden on small and medium screens) */}
-        <aside className="hidden lg:block fixed top-8 left-0 h-screen w-[14%] border-r border-gray-300 bg-gradient-to-r from-blue-500 to-blue-600  shadow-md z-10">
-          <nav className="w-full flex flex-col gap-6 pt-32 px-4 text-sm font-medium">
-            {[
-              { to: "industries", label: "Industries Served" },
-              { to: "process", label: "Our Process" },
-              { to: "testimonial", label: "Testimonials" },
-            ].map((item) => (
+        <aside className="hidden lg:block sticky top-25 self-start h-[100vh] w-70 flex-col bg-gradient-to-b from-blue-500 to-blue-600 shadow-lg">
+          <nav className="flex flex-col gap-4 p-6 pt-16 text-lg font-medium">
+            {navItems.map((item) => (
               <Link
                 key={item.to}
                 to={item.to}
@@ -27,8 +29,8 @@ const Expertise = () => {
                 duration={600}
                 offset={-80}
                 spy={true}
-                activeClass="bg-gray-700 text-blue-600 shadow-md"
-                className="cursor-pointer px-4 py-2 text-lg rounded-md transition-all duration-300 text-white hover:bg-white hover:text-gray-700"
+                activeClass="bg-orange-400 text-blue-700 font-semibold shadow-md"
+                className="cursor-pointer px-2 py-1.5 rounded-sm transition-all duration-300 text-white hover:bg-white hover:text-blue-700"
               >
                 {item.label}
               </Link>
@@ -37,7 +39,7 @@ const Expertise = () => {
         </aside>
 
         {/* Main Content */}
-        <main className="w-full lg:ml-[14%] overflow-x-hidden">
+        <main className="w-full overflow-x-hidden">
           <section id="industries" className="scroll-mt-24">
             <Industries />
           </section>
@@ -49,11 +51,10 @@ const Expertise = () => {
           <section id="testimonial" className="scroll-mt-24">
             <Testimonial />
           </section>
-
-          <WhatsappBanner />
-          <Footer />
         </main>
       </div>
+      <WhatsappBanner />
+      <Footer />
     </>
   );
 };

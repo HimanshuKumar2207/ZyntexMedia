@@ -13,7 +13,7 @@ const Footer = () => {
   const socials = [
     {
       icon: <FaSquareInstagram />,
-      link: "https://instagram.com",
+      link: "https://www.instagram.com/zyntexmedia/",
       color: "from-pink-500 to-yellow-400",
     },
     {
@@ -23,7 +23,7 @@ const Footer = () => {
     },
     {
       icon: <FaLinkedin />,
-      link: "https://linkedin.com",
+      link: "https://www.linkedin.com/company/zyntexmedia/",
       color: "from-blue-400 to-indigo-600",
     },
   ];
@@ -58,10 +58,10 @@ const Footer = () => {
         <div>
           {" "}
           <img
-            src={assets.logotext}
+            src={assets.FooterLogo}
             alt="Logo"
             width={200}
-            className="mx-auto md:mx-0 mb-4 h-24 w-auto"
+            className="mx-auto md:mx-0 mb-4 h-28 w-auto"
           />{" "}
           <p className="text-gray-400 max-w-sm mx-auto md:mx-0 text-sm leading-relaxed mb-4">
             {" "}
@@ -142,37 +142,37 @@ const Footer = () => {
         </div>
         {/* Social icons redesigned */}
         <div className="flex flex-col gap-3">
-          <h2 className="text-xl font-bold text-center md:text-left">
+          <h2 className="text-xl font-bold text-center md:text-left text-white">
             Stay Connected
           </h2>
           <p className="text-gray-400 text-sm text-center md:text-left">
             Let’s grow together on social platforms
           </p>
-
           {/* Social Grid */}
           <div className="flex justify-center gap-4 mt-2 md:mr-15 ">
             {socials.map((s, i) => (
-              <motion.div
+              <motion.a
                 key={i}
+                href={s.link}
+                target="_blank"
+                rel="noopener noreferrer"
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ delay: i * 0.15, duration: 0.5 }}
                 whileHover={{ scale: 1.08 }}
                 whileTap={{ scale: 0.95 }}
                 className="relative group rounded-2xl
-                   shadow-lg hover:shadow-xl hover:shadow-blue-500/20 
-                   flex flex-col items-center justify-center text-center cursor-pointer
-                   transition duration-300"
+         shadow-lg hover:shadow-xl hover:shadow-blue-500/20 
+         flex flex-col items-center justify-center text-center cursor-pointer
+         transition duration-300"
               >
-                {/* Glow Ring */}
-
                 {/* Icon */}
                 <div
                   className={`relative p-3 text-2xl rounded-full bg-gradient-to-br ${s.color} text-white shadow-md`}
                 >
                   {s.icon}
                 </div>
-              </motion.div>
+              </motion.a>
             ))}
           </div>
         </div>

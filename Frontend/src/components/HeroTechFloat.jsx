@@ -30,42 +30,41 @@ const floaters = Array.from({ length: 20 }).map((_, i) => ({
   duration: Math.random() * 6 + 6, // faster: 6–12s
 }));
 
-
 // Floating Shape
 const Floater = ({ shape, left, size, color, delay, duration }) => {
-const shapeStyle = {
-  width: size,
-  height: size,
-  background: color,
-  clipPath:
-    shape === "circle"
-      ? "circle(50% at 50% 50%)"
-      : shape === "triangle"
-      ? "polygon(50% 0%, 0% 100%, 100% 100%)"
-      : shape === "hexagon"
-      ? "polygon(25% 5%, 75% 5%, 100% 50%, 75% 95%, 25% 95%, 0% 50%)"
-      : shape === "rectangle"
-      ? "inset(0 0 0 0)"
-      : shape === "ellipse"
-      ? "ellipse(50% 35% at 50% 50%)"
-      : shape === "pentagon"
-      ? "polygon(50% 0%, 100% 38%, 82% 100%, 18% 100%, 0% 38%)"
-      : shape === "octagon"
-      ? "polygon(30% 0, 70% 0, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0 70%, 0 30%)"
-      : shape === "star"
-      ? "polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%)"
-      : shape === "parallelogram"
-      ? "polygon(25% 0, 100% 0, 75% 100%, 0% 100%)"
-      : shape === "rhombus"
-      ? "polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%)"
-      : shape === "trapezoid"
-      ? "polygon(20% 0%, 80% 0%, 100% 100%, 0% 100%)"
-      : shape === "cross"
-      ? "polygon(35% 0%, 65% 0%, 65% 35%, 100% 35%, 100% 65%, 65% 65%, 65% 100%, 35% 100%, 35% 65%, 0% 65%, 0% 35%, 35% 35%)"
-      : shape === "diamond"
-      ? "polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%)"
-      : "none",
-};
+  const shapeStyle = {
+    width: size,
+    height: size,
+    background: color,
+    clipPath:
+      shape === "circle"
+        ? "circle(50% at 50% 50%)"
+        : shape === "triangle"
+        ? "polygon(50% 0%, 0% 100%, 100% 100%)"
+        : shape === "hexagon"
+        ? "polygon(25% 5%, 75% 5%, 100% 50%, 75% 95%, 25% 95%, 0% 50%)"
+        : shape === "rectangle"
+        ? "inset(0 0 0 0)"
+        : shape === "ellipse"
+        ? "ellipse(50% 35% at 50% 50%)"
+        : shape === "pentagon"
+        ? "polygon(50% 0%, 100% 38%, 82% 100%, 18% 100%, 0% 38%)"
+        : shape === "octagon"
+        ? "polygon(30% 0, 70% 0, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0 70%, 0 30%)"
+        : shape === "star"
+        ? "polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%)"
+        : shape === "parallelogram"
+        ? "polygon(25% 0, 100% 0, 75% 100%, 0% 100%)"
+        : shape === "rhombus"
+        ? "polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%)"
+        : shape === "trapezoid"
+        ? "polygon(20% 0%, 80% 0%, 100% 100%, 0% 100%)"
+        : shape === "cross"
+        ? "polygon(35% 0%, 65% 0%, 65% 35%, 100% 35%, 100% 65%, 65% 65%, 65% 100%, 35% 100%, 35% 65%, 0% 65%, 0% 35%, 35% 35%)"
+        : shape === "diamond"
+        ? "polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%)"
+        : "none",
+  };
 
   return (
     <motion.div
@@ -81,7 +80,7 @@ const shapeStyle = {
 
 const HeroTechFloat = () => {
   return (
-    <section className="md:hidden relative overflow-hidden bg-gradient-to-t from-blue-500 via-orange-50 to-blue-600 mb-65 sm:mb-[0px]">
+    <section className="md:hidden relative overflow-hidden bg-gradient-to-t from-orange-400 via-blue-100 to-blue-400 mb-65 sm:mb-[0px]">
       {/* Subtle grid background */}
       <div
         className="absolute inset-0 -z-10"

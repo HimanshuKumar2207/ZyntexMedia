@@ -56,6 +56,7 @@ import ecommerce from "./ecommerce.gif";
 import logotext from "./logotext.png";
 import logoImg from "./techverslogomain.png";
 import phone from "./phone.png";
+import FooterLogo from "./footerLogo.png";
 export const assets = {
   seo,
   webdev,
@@ -72,7 +73,7 @@ export const assets = {
   backend,
   js,
   ux,
-
+  FooterLogo,
   upload,
 
   project,

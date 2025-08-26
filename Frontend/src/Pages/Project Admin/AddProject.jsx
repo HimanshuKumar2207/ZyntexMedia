@@ -173,7 +173,7 @@ const AddProject = () => {
 
         <button
           type="submit"
-          className="mt-8 w-40 h-10 bg-primary text-white rounded cursor-pointer text-sm hover:opacity-90"
+          className="mt-8 w-40 h-10 bg-blue-600 text-white rounded cursor-pointer text-sm hover:opacity-90"
         >
           Add Project
         </button>

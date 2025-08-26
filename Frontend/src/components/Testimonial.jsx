@@ -49,7 +49,7 @@ const settings = {
 
 const Testimonial = () => {
   return (
-    <section className="bg-white py-4 pb-2 sm:pt-10 sm:pb-0 px-4 sm:px-8 md:px-12 lg:px-20">
+    <section className="bg-gradient-to-r from-gray-100 to-gray-200 py-4 pb-2 sm:pt-10 sm:pb-0 md:pb-10 px-4 sm:px-8 md:px-12 lg:px-20">
       {/* Heading */}
       <div className="text-center sm:mb-8">
         <Title

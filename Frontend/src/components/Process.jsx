@@ -39,7 +39,7 @@ const steps = [
 
 const Process = () => {
   return (
-    <section className="w-full bg-gradient-to-br from-gray-200 to-gray-100 py-4 pb-24 md:py-10 md:pb-24 px-6 md:px-12 lg:px-20">
+    <section className="w-full bg-white py-4 pb-24 md:py-10 md:pb-24 px-6 md:px-12 lg:px-20">
       <div className="text-center mb-2 sm:mb-6">
         <Title
           heading1="Our Proven Process"

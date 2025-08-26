@@ -54,6 +54,10 @@ const Navbar = () => {
     };
   }, [isMenuOpen]);
 
+  useEffect(() => {
+    const onScrollTop = () => {};
+  });
+
   return (
     <div className="sticky top-0 z-50">
       <header className="w-full px-8 py-2 shadow-md bg-white flex items-center lg:justify-around justify-between relative z-50">
@@ -75,6 +79,12 @@ const Navbar = () => {
             <NavLink
               key={item.name}
               to={item.path}
+              onClick={() =>
+                window.scrollTo({
+                  top: 0,
+                  behavior: "smooth", // smooth scroll
+                })
+              }
               className={({ isActive }) =>
                 isActive
                   ? "text-blue-600 text-md font-semibold"
@@ -89,12 +99,12 @@ const Navbar = () => {
         {/* Desktop CTA */}
         <div className="hidden lg:block">
           <Link to="/contact">
-          <button
-                onClick={() => setIsMenuOpen(false)}
-                className="button px-4 py-2 "
-              >
-                Let's Talk
-              </button>
+            <button
+              onClick={() => setIsMenuOpen(false)}
+              className="button px-4 py-2 "
+            >
+              Let's Talk
+            </button>
           </Link>
         </div>
 
@@ -145,4 +155,3 @@ const Navbar = () => {
 };
 
 export default Navbar;
-
