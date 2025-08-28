@@ -68,8 +68,8 @@ const Contact = () => {
               {
                 icon: <IoHome className="text-xl text-white" />,
                 title: "Address",
-                detail: "Patna - Bihar - 800009",
-                sub: "Patna, Bihar, India",
+                detail: "Sheikhpura - Bihar - 811105",
+                sub: "Satbighi, Bihar, India",
               },
               {
                 icon: <MdAddCall className="text-xl text-white" />,
