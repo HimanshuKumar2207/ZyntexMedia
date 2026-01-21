@@ -8,12 +8,12 @@ const testimonials = [
   {
     name: "Amit Sharma",
     image: "https://i.pravatar.cc/150?img=12",
-    text: "TechverseMedia transformed our outdated website into a fast, modern platform that our customers love. Their team is efficient, creative, and always delivers beyond expectations.",
+    text: "ZyntexMedia transformed our outdated website into a fast, modern platform that our customers love. Their team is efficient, creative, and always delivers beyond expectations.",
   },
   {
     name: "Priya Verma",
     image: "https://i.pravatar.cc/150?img=32",
-    text: "Working with TechverseMedia was seamless. They understood our vision and executed it with precision, making our online presence stronger than ever.",
+    text: "Working with zyntexMedia was seamless. They understood our vision and executed it with precision, making our online presence stronger than ever.",
   },
   {
     name: "Rahul Mehta",
@@ -23,7 +23,7 @@ const testimonials = [
   {
     name: "Sneha Kapoor",
     image: "https://i.pravatar.cc/150?img=45",
-    text: "From UI/UX to backend optimization, TechverseMedia handled it all perfectly. Our platform is now faster, cleaner, and more engaging.",
+    text: "From UI/UX to backend optimization, zyntexmedia handled it all perfectly. Our platform is now faster, cleaner, and more engaging.",
   },
   {
     name: "Karan Bhatt",
