@@ -2,14 +2,15 @@ import React from "react";
 
 const Title = ({ heading1, heading2 }) => {
   return (
-    <div className="relative flex flex-col items-center justify-center text-center py-12 px-4 sm:px-6 lg:px-8 rounded-xl overflow-hidden ">
+    <div className="relative flex w-full flex-col items-center justify-center overflow-hidden rounded-xl px-4 py-2 text-center sm:px-6 sm:py-12 lg:px-8 lg:py-14">
       {/* Title Content */}
-      <div className="relative z-10 max-w-3xl">
-        <p className="text-3xl sm:text-3xl md:text-3xl lg:text-4xl font-bold text-gray-900 leading-tight mb-4">
+      <div className="relative z-10 w-full max-w-3xl">
+        <p className="mb-3 text-2xl font-bold leading-tight text-gray-900 sm:text-3xl md:text-4xl">
           {heading1}
         </p>
-        <div className="relative inline-block">
-          <p className="text-md sm:text-md md:text-lg text-gray-700 font-medium relative z-10">
+
+        <div className="relative inline-block max-w-2xl">
+          <p className="text-sm font-medium leading-6 text-gray-600 sm:text-base sm:leading-7 md:text-lg">
             {heading2}
           </p>
         </div>

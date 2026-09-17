@@ -117,12 +117,12 @@ export const addProject = async (req, res) => {
     const { title, description, github, liveDemo } = req.body;
 
     // Parse tech stack
-    let techStack = JSON.parse(req.body.techStack);
-    if (!Array.isArray(techStack) || techStack.length === 0) {
-      return res
-        .status(400)
-        .json({ success: false, message: "Invalid tech stack" });
-    }
+    // let techStack = JSON.parse(req.body.techStack);
+    // if (!Array.isArray(techStack) || techStack.length === 0) {
+    //   return res
+    //     .status(400)
+    //     .json({ success: false, message: "Invalid tech stack" });
+    // }
 
     if (!req.file) {
       return res
@@ -139,8 +139,8 @@ export const addProject = async (req, res) => {
     const newProject = new Project({
       title,
       description,
-      techStack,
-      github,
+      // techStack,
+      // github,
       liveDemo,
       image: uploadResponse.url, // Save URL instead of filename
     });

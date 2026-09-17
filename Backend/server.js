@@ -3,8 +3,9 @@ import cors from "cors";
 import "dotenv/config.js";
 import connectDB from "./config/mongodb.js";
 import adminRouter from "./routes/adminRoutes.js";
-import blogRouter from "./routes/blogRoutes.js";
+// import blogRouter from "./routes/blogRoutes.js";
 import projectRoutes from "./routes/projectRoutes.js";
+import inquiryRoutes from "./routes/inquiryRoutes.js";
 
 const app = express();
 const PORT = process.env.PORT || 4000;
@@ -19,8 +20,8 @@ app.get("/", (req, res) => {
 });
 
 app.use("/api/admin", adminRouter);
-app.use("/api/blog", blogRouter);
 app.use("/api/projects", projectRoutes);
+app.use("/api/inquiries", inquiryRoutes);
 
 app.listen(PORT, () => console.log("Server Started on PORT:" + PORT));
 

@@ -7,15 +7,16 @@ import WhatsappBanner from "../components/WhatsappBanner";
 import FAQ from "../components/FAQ";
 import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
+import HomeProjects from "../components/HomeProject";
 
 const Home = () => {
   return (
     <>
       <Navbar />
       <Hero />
-      <Skills />
+      {/* <Skills /> */}
       <Specialties />
-      <Services />
+      <HomeProjects />
       <FAQ />
       <WhatsappBanner />
       <Footer />

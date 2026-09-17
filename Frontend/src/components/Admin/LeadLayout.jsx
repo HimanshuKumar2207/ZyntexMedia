@@ -2,9 +2,9 @@ import React from "react";
 import { assets } from "../../assets/assets";
 import { Outlet } from "react-router-dom";
 import { useAppContext } from "../../context/AppContext";
-import ProjectSidebar from "../../components/Admin/ProjectSidebar";
+import LeadSidebar from "../../components/Admin/LeadSidebar";
 
-const ProjectLayout = () => {
+const LeadLayout = () => {
   const { setToken, axios, navigate } = useAppContext();
 
   const logout = () => {
@@ -37,12 +37,12 @@ const ProjectLayout = () => {
 
           {/* ================= RIGHT SECTION ================= */}
           <div className="flex items-center gap-4">
-            {/* Project Admin Badge */}
+            {/* Lead Admin Badge */}
             <div className="hidden sm:flex items-center gap-2 px-3 py-1.5 rounded-full bg-gray-50 border border-gray-200">
               <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
 
               <span className="text-xs font-medium text-gray-600">
-                project Admin
+                Lead Admin
               </span>
             </div>
 
@@ -96,7 +96,7 @@ const ProjectLayout = () => {
       <div className="flex min-h-[calc(100vh-72px)]">
         {/* ================= SIDEBAR ================= */}
         <aside className="shrink-0">
-          <ProjectSidebar />
+          <LeadSidebar />
         </aside>
 
         {/* ================= PAGE CONTENT ================= */}
@@ -110,4 +110,4 @@ const ProjectLayout = () => {
   );
 };
 
-export default ProjectLayout;
+export default LeadLayout;

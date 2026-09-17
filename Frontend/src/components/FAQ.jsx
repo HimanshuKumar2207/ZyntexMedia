@@ -1,48 +1,33 @@
 import React, { useState } from "react";
 import { FiChevronDown, FiChevronUp } from "react-icons/fi";
-import { HelpCircle } from "lucide-react"; // for icon badge
+import { HelpCircle } from "lucide-react";
 import Title from "./Title";
 
 const faqData = [
   {
     question: "What services does ZyntexMedia offer?",
     answer:
-      "We provide end-to-end digital solutions including website and web app development, mobile app development, UI/UX design, branding, SEO, digital marketing, and API integrations—helping businesses grow and succeed in the digital era.",
+      "We provide website and software development, mobile apps, UI/UX design, SEO, digital marketing, branding, and API integrations.",
   },
   {
     question: "Can you redesign our existing website or app?",
     answer:
-      "Absolutely. We specialize in transforming outdated platforms into modern, high-performing solutions by enhancing UI/UX, speed, SEO, and responsiveness—resulting in a fresh, impactful online presence that drives measurable results.",
+      "Yes. We can modernize your existing website or app by improving its design, performance, responsiveness, user experience, and functionality.",
   },
   {
-    question: "Do you also provide content and marketing support?",
+    question: "Do you work with startups and established businesses?",
     answer:
-      "Yes. We deliver tailored content for websites, blogs, and social media along with targeted digital marketing campaigns—designed to improve engagement, strengthen your brand voice, and boost search engine rankings.",
-  },
-  {
-    question: "How long will it take to complete my project?",
-    answer:
-      "Timelines vary based on complexity. Landing pages or basic sites may take 1–2 weeks, while large-scale platforms or marketing campaigns can require 3–6 weeks. We finalize schedules after understanding your requirements in detail.",
-  },
-  {
-    question: "Do you provide support after delivery?",
-    answer:
-      "Yes. We offer post-launch services such as maintenance, bug fixes, updates, performance monitoring, and feature enhancements—ensuring your solution remains secure, optimized, and future-ready.",
-  },
-  {
-    question: "Do you work with startups as well as established companies?",
-    answer:
-      "Yes. We collaborate with startups, SMEs, and enterprises—offering scalable and cost-effective solutions that match your stage of growth, budget, and strategic goals.",
-  },
-  {
-    question: "What technologies does ZyntexMedia use?",
-    answer:
-      "Our development stack includes React, Node.js, Express, MongoDB, Tailwind CSS, Flutter, and other modern tools. We also work with cloud platforms, API integrations, and industry-standard security practices.",
+      "Yes. We work with startups, small businesses, and established companies, creating solutions based on their goals, requirements, and budget.",
   },
   {
     question: "Can we request changes during the project?",
     answer:
-      "Yes. We follow an agile, collaborative process—allowing you to review progress and request adjustments at key stages. This ensures the final product aligns perfectly with your vision and goals.",
+      "Yes. We keep the process collaborative and provide opportunities to review the work and request changes during key development stages.",
+  },
+  {
+    question: "How much does a project cost?",
+    answer:
+      "Project costs depend on the features, design, technology, and overall requirements. Contact us with your idea for a customized estimate.",
   },
 ];
 
@@ -50,74 +35,296 @@ const FAQ = () => {
   const [activeIndex, setActiveIndex] = useState(null);
 
   const toggleFAQ = (index) => {
-    setActiveIndex(index === activeIndex ? null : index);
+    setActiveIndex(activeIndex === index ? null : index);
   };
 
   return (
-    <section className="relative bg-gradient-to-br from-slate-50 via-slate-100 to-slate-200 mb-[-40px] py-4 pb-20 px-4 sm:px-8 md:px-16 lg:px-28 overflow-hidden">
-      {/* Background gradient glows */}
-      <div className="absolute -top-20 -left-20 w-80 h-80 bg-purple-400/40 blur-[140px] rounded-full -z-10" />
-      <div className="absolute bottom-0 right-0 w-[28rem] h-[28rem] bg-blue-300/30 blur-[160px] rounded-full -z-10" />
+    <section className="relative w-full overflow-hidden bg-gradient-to-br from-slate-50 via-slate-100 to-slate-200 px-4 py-10 sm:px-6 sm:py-12 md:px-10 md:py-14 lg:px-16 lg:py-16 xl:px-20">
+      {/* =========================================================
+          BACKGROUND GLOWS
+      ========================================================= */}
+      <div className="pointer-events-none absolute -left-24 -top-20 h-52 w-52 rounded-full bg-purple-400/20 blur-[100px] sm:-left-16 sm:-top-16 sm:h-64 sm:w-64 md:h-72 md:w-72 md:blur-[120px]" />
 
-      <div className="max-w-5xl mx-auto text-center">
-        <Title
-          heading1="Frequently Asked Questions"
-          heading2="Essential answers simplifying user doubts for smooth decision-making process"
-        />
-      </div>
+      <div className="pointer-events-none absolute -bottom-24 -right-20 h-60 w-60 rounded-full bg-blue-300/20 blur-[110px] sm:h-72 sm:w-72 md:h-80 md:w-80 md:blur-[140px]" />
 
-      <div className="max-w-5xl mx-auto mt-2 space-y-6">
-        {faqData.map((item, index) => {
-          const isOpen = activeIndex === index;
+      <div className="pointer-events-none absolute left-1/2 top-1/2 h-40 w-40 -translate-x-1/2 -translate-y-1/2 rounded-full bg-blue-200/10 blur-[90px] sm:h-56 sm:w-56 md:h-64 md:w-64" />
 
-          return (
-            <div
-              key={index}
-              className="relative group border border-white/30 rounded-2xl shadow-lg bg-white/70 backdrop-blur-lg transition-all duration-300 hover:shadow-2xl hover:scale-[1.01]"
-            >
-              {/* Gradient border glow */}
-              <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 blur-md transition duration-500 -z-10" />
+      {/* =========================================================
+          MAIN CONTAINER
+      ========================================================= */}
+      <div className="relative z-10 mx-auto w-full max-w-5xl">
+        {/* =======================================================
+            HEADING
+        ======================================================= */}
+        <div className="mx-auto w-full max-w-3xl text-center">
+          <Title
+            heading1="Frequently Asked Questions"
+            heading2="Quick answers to common questions about our services and process"
+          />
+        </div>
 
-              <button
-                onClick={() => toggleFAQ(index)}
-                className="w-full flex justify-between items-center px-6 sm:px-10 py-3 text-left"
-                aria-expanded={isOpen}
-                aria-controls={`faq-${index}`}
-              >
-                <div className="flex items-center gap-3">
-                  <span className="p-2 rounded-full bg-gradient-to-tr from-blue-500 to-blue-500 text-white shadow-md">
-                    <HelpCircle size={18} />
-                  </span>
-                  <span className="text-gray-800 font-semibold text-base sm:text-lg">
-                    {item.question}
-                  </span>
-                </div>
+        {/* =======================================================
+            FAQ LIST
+        ======================================================= */}
+        <div className="mx-auto mt-7 w-full space-y-3 sm:mt-9 sm:space-y-4">
+          {faqData.map((item, index) => {
+            const isOpen = activeIndex === index;
 
-                <span
-                  className={`text-2xl transition-transform duration-300 ${
-                    isOpen ? "rotate-180 text-purple-600" : "text-blue-500"
-                  }`}
-                >
-                  {isOpen ? <FiChevronUp /> : <FiChevronDown />}
-                </span>
-              </button>
-
-              {/* Animated Answer */}
+            return (
               <div
-                id={`faq-${index}`}
-                className={`grid transition-all duration-500 ease-in-out px-6 sm:px-8 text-gray-600 text-sm sm:text-base ${
-                  isOpen
-                    ? "grid-rows-[1fr] opacity-100 pb-5"
-                    : "grid-rows-[0fr] opacity-0"
-                }`}
+                key={index}
+                className={`
+                  group
+                  relative
+                  w-full
+                  overflow-hidden
+                  rounded-xl
+                  border
+                  bg-white/75
+                  shadow-sm
+                  backdrop-blur-lg
+                  transition-all
+                  duration-300
+                  sm:rounded-2xl
+                  ${
+                    isOpen
+                      ? "border-blue-200 shadow-md"
+                      : "border-white/60 hover:border-gray-200 hover:shadow-lg"
+                  }
+                `}
               >
-                <div className="overflow-hidden">
-                  <p className="leading-relaxed">{item.answer}</p>
+                {/* =================================================
+                    HOVER / ACTIVE GLOW
+                ================================================= */}
+                <div
+                  className={`
+                    pointer-events-none
+                    absolute
+                    inset-0
+                    rounded-xl
+                    bg-gradient-to-r
+                    from-blue-400/10
+                    to-purple-400/10
+                    transition-opacity
+                    duration-300
+                    sm:rounded-2xl
+                    ${
+                      isOpen
+                        ? "opacity-100"
+                        : "opacity-0 group-hover:opacity-100"
+                    }
+                  `}
+                />
+
+                {/* =================================================
+                    QUESTION BUTTON
+                ================================================= */}
+                <button
+                  type="button"
+                  onClick={() => toggleFAQ(index)}
+                  aria-expanded={isOpen}
+                  aria-controls={`faq-${index}`}
+                  className="
+                    relative
+                    z-10
+                    flex
+                    min-h-[64px]
+                    w-full
+                    cursor-pointer
+                    items-center
+                    justify-between
+                    gap-3
+                    px-4
+                    py-3.5
+                    text-left
+                    transition-colors
+                    duration-300
+                    sm:min-h-[68px]
+                    sm:gap-4
+                    sm:px-5
+                    sm:py-4
+                    md:px-6
+                    lg:px-7
+                  "
+                >
+                  {/* Question Left Side */}
+                  <div className="flex min-w-0 flex-1 items-center gap-3 sm:gap-3.5">
+                    {/* Help Icon */}
+                    <span
+                      className={`
+                        flex
+                        h-8
+                        w-8
+                        shrink-0
+                        items-center
+                        justify-center
+                        rounded-full
+                        bg-gradient-to-tr
+                        from-blue-500
+                        to-blue-600
+                        text-white
+                        shadow-sm
+                        transition-all
+                        duration-300
+                        sm:h-9
+                        sm:w-9
+                        ${
+                          isOpen
+                            ? "scale-105 shadow-md"
+                            : "group-hover:scale-105"
+                        }
+                      `}
+                    >
+                      <HelpCircle
+                        size={16}
+                        strokeWidth={2.2}
+                        className="sm:h-[17px] sm:w-[17px]"
+                      />
+                    </span>
+
+                    {/* Question */}
+                    <span
+                      className={`
+                        min-w-0
+                        break-words
+                        text-[13px]
+                        font-semibold
+                        leading-5
+                        transition-colors
+                        duration-300
+                        sm:text-sm
+                        sm:leading-6
+                        md:text-base
+                        ${
+                          isOpen
+                            ? "text-blue-700"
+                            : "text-gray-800 group-hover:text-gray-900"
+                        }
+                      `}
+                    >
+                      {item.question}
+                    </span>
+                  </div>
+
+                  {/* Chevron */}
+                  <span
+                    className={`
+                      flex
+                      h-8
+                      w-8
+                      shrink-0
+                      items-center
+                      justify-center
+                      rounded-full
+                      transition-all
+                      duration-300
+                      sm:h-9
+                      sm:w-9
+                      ${
+                        isOpen
+                          ? "bg-purple-50 text-purple-600"
+                          : "bg-blue-50 text-blue-500 group-hover:bg-blue-100"
+                      }
+                    `}
+                  >
+                    {isOpen ? (
+                      <FiChevronUp className="text-base sm:text-lg" />
+                    ) : (
+                      <FiChevronDown className="text-base sm:text-lg" />
+                    )}
+                  </span>
+                </button>
+
+                {/* =================================================
+                    ANSWER
+                ================================================= */}
+                <div
+                  id={`faq-${index}`}
+                  className={`
+                    grid
+                    transition-all
+                    duration-300
+                    ease-in-out
+                    ${
+                      isOpen
+                        ? "grid-rows-[1fr] opacity-100"
+                        : "grid-rows-[0fr] opacity-0"
+                    }
+                  `}
+                >
+                  <div className="min-h-0 overflow-hidden">
+                    <div
+                      className="
+                        px-4
+                        pb-4
+                        pl-[60px]
+                        pr-5
+                        sm:px-5
+                        sm:pb-5
+                        sm:pl-[70px]
+                        sm:pr-7
+                        md:pl-[76px]
+                        lg:pr-8
+                      "
+                    >
+                      {/* Answer Divider */}
+                      <div className="mb-3 h-px w-full bg-gray-200/80" />
+
+                      <p
+                        className="
+                          max-w-3xl
+                          text-[12.5px]
+                          leading-5
+                          text-gray-500
+                          sm:text-sm
+                          sm:leading-6
+                        "
+                      >
+                        {item.answer}
+                      </p>
+                    </div>
+                  </div>
                 </div>
+
+                {/* =================================================
+                    BOTTOM ACTIVE LINE
+                ================================================= */}
+                <div
+                  className={`
+                    absolute
+                    bottom-0
+                    left-1/2
+                    h-0.5
+                    -translate-x-1/2
+                    bg-gradient-to-r
+                    from-blue-500
+                    to-purple-500
+                    transition-all
+                    duration-300
+                    ${
+                      isOpen
+                        ? "w-20 sm:w-24"
+                        : "w-0 group-hover:w-16 sm:group-hover:w-20"
+                    }
+                  `}
+                />
               </div>
-            </div>
-          );
-        })}
+            );
+          })}
+        </div>
+
+        {/* =========================================================
+            BOTTOM LABEL
+        ========================================================= */}
+        <div className="mt-7 flex items-center justify-center gap-2 sm:mt-9 sm:gap-3">
+          <span className="h-px w-6 bg-gray-300 sm:w-10" />
+
+          <span className="text-[9px] font-semibold uppercase tracking-[0.18em] text-gray-400 sm:text-[10px] sm:tracking-[0.25em]">
+            We're here to help
+          </span>
+
+          <span className="h-px w-6 bg-gray-300 sm:w-10" />
+        </div>
       </div>
     </section>
   );

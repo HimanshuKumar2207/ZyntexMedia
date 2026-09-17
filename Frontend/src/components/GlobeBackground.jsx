@@ -30,7 +30,7 @@ const GlobeBackground = () => {
   return (
     <div
       ref={vantaRef}
-      className="hidden md:block w-full h-[500px] sm:h-[600px] md:h-[700px]"
+      className="w-full h-[500px] sm:h-[600px] md:h-[700px]"
     ></div>
   );
 };

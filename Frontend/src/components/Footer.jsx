@@ -49,7 +49,7 @@ const Footer = () => {
   };
 
   return (
-    <footer className="w-full bg-gray-900 text-gray-300 px-6 pt-16 pb-16 sm:pt-36 sm:pb-20 mt-10">
+    <footer className="w-full bg-gray-900 text-gray-300 p-8 pb-16 sm:p-20">
       {" "}
       {/* Main Content */}{" "}
       <div className="mx-auto flex flex-col md:flex-row md:justify-around gap-10 text-center md:text-left">
@@ -64,11 +64,8 @@ const Footer = () => {
             className="mx-auto md:mx-0 mb-4 h-28 w-auto"
           />{" "}
           <p className="text-gray-400 max-w-sm mx-auto md:mx-0 text-sm leading-relaxed mb-4">
-            {" "}
-            We elevate digital commerce through innovative design and scalable
-            solutions, delivering impactful user experiences. Partner with us to
-            build smarter brands, accelerate growth, and create something
-            extraordinary together.{" "}
+            We build modern websites, custom software, mobile apps, and digital
+            solutions that help businesses grow.
           </p>{" "}
           {/* CTA Button */}{" "}
           <Link to="/contact">
@@ -91,9 +88,7 @@ const Footer = () => {
             {[
               { name: "Home", path: "/" },
               { name: "About", path: "/about" },
-              { name: "Expertise", path: "/expertise" },
               { name: "Projects", path: "/projects" },
-              { name: "Blog", path: "/blogmain" },
               { name: "Contact", path: "/contact" },
             ].map((page) => (
               <li key={page.name}>
@@ -121,9 +116,7 @@ const Footer = () => {
             {[
               { name: "Web Development", path: "/webdev" },
               { name: "App Development", path: "/appdev" },
-              { name: "Cloud Solutions", path: "/cloud" },
               { name: "UI/UX Design", path: "/uiux" },
-              { name: "DevOps & Deployment", path: "/devops" },
               { name: "Digital Marketing", path: "/digital" },
             ].map((service) => (
               <li key={service.name}>
@@ -168,7 +161,7 @@ const Footer = () => {
               >
                 {/* Icon */}
                 <div
-                  className={`relative p-3 text-2xl rounded-full bg-gradient-to-br ${s.color} text-white shadow-md`}
+                  className={`relative p-3 text-2xl rounded-lg bg-gradient-to-br ${s.color} text-white shadow-md`}
                 >
                   {s.icon}
                 </div>

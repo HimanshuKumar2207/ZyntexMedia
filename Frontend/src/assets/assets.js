@@ -59,7 +59,7 @@ import phone from "./phone.png";
 import FooterLogo from "./footerLogo.png";
 export const assets = {
   seo,
-  webdev,
+  // webdev,
   app,
   content,
   social,

@@ -12,9 +12,9 @@ const Navbar = () => {
   const navItems = [
     { name: "Home", path: "/" },
     { name: "About", path: "/about" },
-    { name: "Expertise", path: "/expertise" },
-    { name: "Projects", path: "/projects" },
-    { name: "Blogs", path: "/blogmain" },
+    // { name: "Expertise", path: "/expertise" },
+    { name: "Works", path: "/projects" },
+    // { name: "Blogs", path: "/blogmain" },
     { name: "Contact", path: "/contact" },
   ];
 
@@ -69,7 +69,7 @@ const Navbar = () => {
             }}
             src={assets.logotext}
             alt="Logo"
-            className="h-22 w-auto"
+            className="h-16 w-auto"
           />
         </Link>
 

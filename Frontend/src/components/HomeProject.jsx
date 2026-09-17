@@ -2,8 +2,7 @@ import React, { useState, useEffect } from "react";
 import { BsBoxArrowUpRight } from "react-icons/bs";
 import { FaArrowRight } from "react-icons/fa";
 import { motion } from "framer-motion";
-import Footer from "../components/Footer";
-import Navbar from "../components/Navbar";
+
 import Title from "../components/Title";
 import { useAppContext } from "../context/AppContext";
 
@@ -24,8 +23,9 @@ const cardVariants = {
   }),
 };
 
-const Projects = () => {
+const HomeProjects = () => {
   const { axios } = useAppContext();
+
   const [projectsData, setProjectsData] = useState([]);
 
   useEffect(() => {
@@ -42,31 +42,18 @@ const Projects = () => {
   }, [axios]);
 
   return (
-    <div className="min-h-screen w-full overflow-x-hidden bg-white">
-      <Navbar />
-
+    <section className="w-full overflow-hidden bg-white">
       {/* =========================================================
           PROJECTS MAIN
       ========================================================= */}
-      <main className="relative w-full min-w-0 overflow-hidden bg-white">
-
+      <main className="relative w-full overflow-hidden bg-white">
         {/* =========================================================
             HERO / TITLE
         ========================================================= */}
-        <section className="w-full px-4 pb-8 pt-8 sm:px-6 sm:pb-10 sm:pt-10 md:px-10 md:pb-12 md:pt-12 lg:px-16 lg:pb-14 lg:pt-14 xl:px-20">
+        <section className="px-4 pb-8 pt-10 sm:px-6 sm:pb-10 sm:pt-12 md:px-10 md:pb-12 md:pt-14 lg:px-16 lg:pb-14 lg:p-1">
           <div className="mx-auto w-full max-w-4xl text-center">
-
-            {/* Small Label */}
-            <div className="mb-3 inline-flex max-w-full items-center gap-2 rounded-full border border-gray-200 bg-white px-3.5 py-1.5 shadow-sm sm:mb-[-30px] sm:px-4">
-              <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-gray-900" />
-
-              <span className="text-[9px] font-semibold uppercase tracking-[0.16em] text-gray-500 sm:text-[10px] sm:tracking-[0.18em] md:text-xs">
-                Our Work
-              </span>
-            </div>
-
             <Title
-              heading1="Projects"
+              heading1="Our Works"
               heading2="Explore digital solutions crafted with modern technology, thoughtful design, and a focus on real-world business needs."
             />
           </div>
@@ -75,13 +62,11 @@ const Projects = () => {
         {/* =========================================================
             PROJECT GRID
         ========================================================= */}
-        <section className="w-full px-4 pb-14 sm:px-6 sm:pb-16 md:px-10 md:pb-20 lg:px-16 lg:mt-[-60px] xl:px-20">
-          <div className="mx-auto w-full max-w-7xl min-w-0">
-
+        <section className="w-full px-4 pb-12 sm:px-6 sm:pb-16 md:px-10 md:pb-20 lg:px-16 lg:mt-[-50px] xl:px-20 ">
+          <div className="mx-auto w-full max-w-7xl">
             {projectsData.length > 0 ? (
-              <div className="grid w-full grid-cols-1 gap-5 sm:gap-6 md:grid-cols-2 md:gap-7 lg:grid-cols-3 lg:gap-8">
-
-                {projectsData.map((project, index) => (
+              <div className="grid w-full grid-cols-1 gap-5 sm:grid-cols-2 sm:gap-6 lg:grid-cols-3 lg:gap-7">
+                {projectsData.slice(0, 3).map((project, index) => (
                   <motion.article
                     key={project?._id || index}
                     custom={index}
@@ -104,25 +89,25 @@ const Projects = () => {
                       group
                       relative
                       flex
-                      h-full
                       min-w-0
+                      h-full
                       flex-col
-                      rounded-[24px]
+                      overflow-hidden
+                      rounded-2xl
                       border
                       border-gray-200
                       bg-white
                       p-2.5
-                      shadow-[0_8px_30px_rgba(0,0,0,0.055)]
+                      shadow-[0_8px_30px_rgba(0,0,0,0.05)]
                       transition-all
                       duration-500
                       hover:border-gray-300
                       hover:shadow-[0_18px_45px_rgba(0,0,0,0.10)]
-                      sm:rounded-[26px]
+                      sm:rounded-[24px]
                       sm:p-3
-                      md:rounded-[28px]
+                      lg:rounded-[28px]
                     "
                   >
-
                     {/* =================================================
                         IMAGE AREA
                     ================================================= */}
@@ -131,25 +116,26 @@ const Projects = () => {
                         relative
                         w-full
                         overflow-hidden
-                        rounded-[20px]
+                        rounded-xl
                         border
                         border-gray-100
                         bg-gray-100
-                        sm:rounded-[22px]
-                        md:rounded-[24px]
+                        sm:rounded-[20px]
+                        lg:rounded-[22px]
                       "
                     >
-
                       {/* Image */}
                       <div className="aspect-[16/10] w-full overflow-hidden">
                         <img
                           src={project?.image}
                           alt={project?.title || "Project"}
+                          loading="lazy"
                           onError={(e) => {
                             e.currentTarget.src =
                               "https://via.placeholder.com/900x600?text=Project+Image";
                           }}
                           className="
+                            block
                             h-full
                             w-full
                             object-cover
@@ -157,12 +143,12 @@ const Projects = () => {
                             transition-transform
                             duration-700
                             ease-out
-                            group-hover:scale-[1.01]
+                            group-hover:scale-[1.03]
                           "
                         />
                       </div>
 
-                      {/* Very subtle image overlay */}
+                      {/* Image Overlay */}
                       <div
                         className="
                           pointer-events-none
@@ -217,8 +203,7 @@ const Projects = () => {
                     {/* =================================================
                         CARD CONTENT
                     ================================================= */}
-                    <div className="flex min-w-0 flex-1 flex-col px-2.5 pb-2.5 pt-4 sm:px-3 sm:pb-3 sm:pt-5">
-
+                    <div className="flex min-w-0 flex-1 flex-col px-1.5 pb-1.5 pt-4 sm:px-2 sm:pb-2 sm:pt-5">
                       {/* Project Title */}
                       <h3
                         className="
@@ -226,15 +211,15 @@ const Projects = () => {
                           break-words
                           text-[18px]
                           font-semibold
-                          leading-[1.25]
-                          tracking-[-0.025em]
+                          leading-6
+                          tracking-[-0.02em]
                           text-gray-900
                           transition-colors
                           duration-300
                           group-hover:text-gray-700
                           sm:text-[20px]
+                          sm:leading-7
                           md:text-[21px]
-                          lg:text-[22px]
                         "
                       >
                         {project?.title}
@@ -257,22 +242,18 @@ const Projects = () => {
                         {project?.description}
                       </p>
 
-                      {/* =================================================
-                          BOTTOM ACTION
-                      ================================================= */}
-                      <div className="mt-auto flex min-w-0 items-center justify-between gap-3 pt-4 sm:pt-5">
-
-                        {/* Live Demo */}
+                      {/* Bottom Action */}
+                      <div className="mt-4 flex w-full items-center justify-end gap-3 sm:mt-5">
                         {project?.liveDemo && (
                           <a
                             href={project.liveDemo}
                             target="_blank"
                             rel="noopener noreferrer"
+                            aria-label={`View ${project?.title || "project"}`}
                             className="
                               group/link
-                              ml-auto
                               inline-flex
-                              shrink-0
+                              min-h-10
                               items-center
                               justify-center
                               gap-1.5
@@ -288,9 +269,9 @@ const Projects = () => {
                               duration-300
                               hover:bg-black
                               hover:shadow-md
+                              active:scale-95
                               sm:gap-2
                               sm:px-5
-                              sm:py-2.5
                               sm:text-xs
                             "
                           >
@@ -300,7 +281,6 @@ const Projects = () => {
 
                             <FaArrowRight
                               className="
-                                shrink-0
                                 text-[8px]
                                 transition-transform
                                 duration-300
@@ -324,7 +304,7 @@ const Projects = () => {
                   mx-auto
                   w-full
                   max-w-md
-                  rounded-[24px]
+                  rounded-2xl
                   border
                   border-gray-200
                   bg-white
@@ -342,8 +322,8 @@ const Projects = () => {
                     mx-auto
                     mb-4
                     flex
-                    h-12
-                    w-12
+                    h-13
+                    w-13
                     items-center
                     justify-center
                     rounded-full
@@ -356,10 +336,7 @@ const Projects = () => {
                     sm:w-14
                   "
                 >
-                  <BsBoxArrowUpRight
-                    size={20}
-                    className="sm:h-[21px] sm:w-[21px]"
-                  />
+                  <BsBoxArrowUpRight size={20} />
                 </div>
 
                 <h3 className="text-lg font-semibold tracking-tight text-gray-900 sm:text-xl">
@@ -378,130 +355,53 @@ const Projects = () => {
         {/* =========================================================
             CTA SECTION
         ========================================================= */}
-        <section className="w-full px-4 pb-14 sm:px-6 sm:pb-16 md:px-10 md:pb-20 lg:px-16 xl:px-20">
-          <div
-            className="
-              mx-auto
-              w-full
-              max-w-5xl
-              rounded-[24px]
-              border
-              border-gray-200
-              bg-gray-50
-              px-5
-              py-8
-              text-center
-              sm:rounded-[28px]
-              sm:px-8
-              sm:py-10
-              md:rounded-[30px]
-              md:px-10
-              md:py-12
-            "
-          >
-
-            {/* Small Label */}
-            <span
+        <section className="w-full px-4 pb-12 sm:px-6 sm:pb-16 md:px-10 md:pb-20 lg:px-16 xl:px-20">
+          <div className="flex justify-center">
+            <a
+              href="/projects"
               className="
-                text-[9px]
-                font-semibold
-                uppercase
-                tracking-[0.18em]
-                text-gray-400
-                sm:text-[10px]
-                sm:tracking-[0.2em]
-              "
-            >
-              Let’s Work Together
-            </span>
-
-            {/* Heading */}
-            <h2
-              className="
-                mx-auto
-                mt-3
-                max-w-2xl
-                text-[22px]
-                font-semibold
-                leading-tight
-                tracking-[-0.03em]
-                text-gray-900
-                sm:text-2xl
-                md:text-3xl
-                lg:text-4xl
-              "
-            >
-              Have an idea for your next project?
-            </h2>
-
-            {/* Description */}
-            <p
-              className="
-                mx-auto
-                mt-3
-                max-w-xl
-                text-[13px]
-                leading-5
-                text-gray-500
+                group
+                inline-flex
+                min-h-11
+                w-auto
+                items-center
+                justify-center
+                gap-2
+                rounded-full
+                bg-blue-600
+                px-5
+                py-3
+                text-xs
+                font-medium
+                text-white
+                shadow-sm
+                transition-all
+                duration-300
+                hover:-translate-y-0.5
+                hover:bg-black
+                hover:shadow-lg
+                active:scale-95
+                sm:px-6
                 sm:text-sm
-                sm:leading-6
-                md:text-base
               "
             >
-              Let’s turn your idea into a modern digital experience built
-              around your business goals.
-            </p>
+              <span className="whitespace-nowrap">Explore Works</span>
 
-            {/* CTA Button */}
-            <div className="mt-5 flex justify-center sm:mt-6">
-              <a
-                href="/contact"
+              <FaArrowRight
                 className="
-                  group
-                  inline-flex
-                  min-h-11
-                  items-center
-                  justify-center
-                  gap-2
-                  rounded-full
-                  bg-gray-900
-                  px-5
-                  py-2.5
-                  text-xs
-                  font-medium
-                  text-white
-                  shadow-sm
-                  transition-all
+                  text-[9px]
+                  transition-transform
                   duration-300
-                  hover:-translate-y-0.5
-                  hover:bg-black
-                  hover:shadow-lg
-                  sm:px-6
-                  sm:py-3
-                  sm:text-sm
+                  group-hover:translate-x-1
+                  sm:text-[10px]
                 "
-              >
-                <span className="whitespace-nowrap">Let’s Talk</span>
-
-                <FaArrowRight
-                  className="
-                    shrink-0
-                    text-[9px]
-                    transition-transform
-                    duration-300
-                    group-hover:translate-x-1
-                    sm:text-[10px]
-                  "
-                />
-              </a>
-            </div>
+              />
+            </a>
           </div>
         </section>
       </main>
-
-      <Footer />
-    </div>
+    </section>
   );
 };
 
-export default Projects;
+export default HomeProjects;
