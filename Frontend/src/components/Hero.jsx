@@ -5,6 +5,7 @@ import { MdEmail, MdClose } from "react-icons/md";
 import { FaWhatsapp, FaPaperPlane } from "react-icons/fa";
 import { useAppContext } from "../context/AppContext";
 import toast from "react-hot-toast";
+import { useNavigate } from "react-router-dom";
 
 // ============================================================
 // SERVICES
@@ -273,6 +274,7 @@ const MobilePopup = ({ show, onClose, ...formProps }) => {
 // ============================================================
 
 const Hero = () => {
+  const navigate = useNavigate();
   const { axios } = useAppContext();
 
   // ==========================================================
@@ -393,8 +395,6 @@ const Hero = () => {
       });
 
       if (data?.success) {
-        toast.success("Inquiry submitted successfully!");
-
         // RESET FORM
         setFullName("");
         setPhone("");
@@ -404,6 +404,9 @@ const Hero = () => {
 
         // CLOSE MOBILE POPUP
         setShowMobileForm(false);
+
+        // GO TO THANK YOU PAGE
+        navigate("/thank-you");
       } else {
         toast.error(data?.message || "Something went wrong");
       }

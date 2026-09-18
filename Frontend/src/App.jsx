@@ -37,6 +37,7 @@ import Inquiries from "./Pages/LeadAdmin/Inquiries";
 // ================= OTHER COMPONENTS =================
 import ScrollToTop from "./components/ScrollToTop";
 import Marketing from "./components/Marketing";
+import ThankYou from "./components/ThankYou";
 
 const App = () => {
   const { token } = useAppContext();
@@ -59,6 +60,8 @@ const App = () => {
         <Route path="/projects" element={<Projects />} />
 
         <Route path="/contact" element={<Contact />} />
+
+        <Route path="/thank-you" element={<ThankYou />} />
 
         {/* =====================================================
             SERVICE ROUTES

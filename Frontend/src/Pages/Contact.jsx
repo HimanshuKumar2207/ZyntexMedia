@@ -1,6 +1,7 @@
 import React, { useRef, useState } from "react";
 import { IoHome } from "react-icons/io5";
 import { MdAddCall, MdEmail, MdWork } from "react-icons/md";
+import { useNavigate } from "react-router-dom";
 import { toast } from "react-hot-toast";
 import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
@@ -8,6 +9,7 @@ import contactImg from "../assets/contact.jpg";
 import { useAppContext } from "../context/AppContext";
 
 const Contact = () => {
+  const navigate = useNavigate();
   const form = useRef();
   const { axios } = useAppContext();
   const [loading, setLoading] = useState(false);
@@ -74,9 +76,10 @@ const Contact = () => {
         return;
       }
 
-      toast.success("Message sent successfully! We will contact you soon.");
-
+      // toast.success("Message sent successfully! We will contact you soon.");
       form.current.reset();
+
+      navigate("/thank-you");
     } catch (error) {
       console.error("Contact form error:", error);
       console.error("Response:", error?.response?.data);
