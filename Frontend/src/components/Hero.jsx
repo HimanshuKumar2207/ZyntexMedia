@@ -568,7 +568,7 @@ const Hero = () => {
                   duration: 0.7,
                   delay: 0.15,
                 }}
-                className="mx-auto w-full max-w-[360px] lg:max-w-[390px] xl:max-w-[410px]"
+                className="mx-auto w-full max-w-[360px] lg:max-w-[500px]"
               >
                 <InquiryForm {...formProps} />
               </motion.div>
